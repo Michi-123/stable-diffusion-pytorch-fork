@@ -26,8 +26,8 @@ def pairwise(seq):
     return zip(a, b)
 
 class Tokenizer:
-    def __init__(self, ):
-        with open(util.get_file_path('vocab.json'), encoding='utf-8') as f:
+    def __init__(self, model_path):
+        with open(util.get_file_path(os.path.join(model_path, 'vocab.json')), encoding='utf-8') as f:
             self.vocab = json.load(f)
 
         with open(util.get_file_path('merges.txt'), encoding='utf-8') as f:
