@@ -1,3 +1,4 @@
+import os
 import unicodedata
 import functools
 import itertools
