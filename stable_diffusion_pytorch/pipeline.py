@@ -111,7 +111,7 @@ class Pipeline:
             else:
                 generator.manual_seed(seed)
 
-            tokenizer = Tokenizer()
+            tokenizer = Tokenizer(model_path)
             clip = models.get('clip') or model_loader.load_clip(device)
             clip.to(device)
             if do_cfg:
