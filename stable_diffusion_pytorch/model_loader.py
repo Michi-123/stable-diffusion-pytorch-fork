@@ -55,18 +55,18 @@ def load_decoder(device):
     decoder.load_state_dict(state_dict)
     return decoder
 
-def load_diffusion(device):
-    state_dict = torch.load(util.get_file_path('ckpt/diffusion.pt'))
+def load_diffusion(device, model_path):
+    state_dict = torch.load(util.get_file_path(model_path))
     state_dict = make_compatible(state_dict)
 
     diffusion = Diffusion().to(device)
     diffusion.load_state_dict(state_dict)
     return diffusion
 
-def preload_models(device):
+def preload_models(device, model_path):
     return {
         'clip': load_clip(device),
         'encoder': load_encoder(device),
         'decoder': load_decoder(device),
-        'diffusion': load_diffusion(device),
+        'diffusion': load_diffusion(device, model_path),
     }
