@@ -64,7 +64,7 @@ def load_diffusion(device, model_path):
     diffusion.load_state_dict(state_dict)
     return diffusion
 
-def preload_models(device, model_path):
+def preload_models(device, model_path='./'):
     return {
         'clip': load_clip(device, model_path),
         'encoder': load_encoder(device, model_path),
