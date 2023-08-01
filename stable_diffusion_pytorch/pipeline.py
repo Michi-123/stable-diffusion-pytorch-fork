@@ -27,7 +27,8 @@ class Pipeline:
                 models={},
                 seed=None,
                 device=None,
-                idle_device=None
+                idle_device=None,
+                model_path='./'
     ):
         r"""
         Function invoked when calling the pipeline for generation.
