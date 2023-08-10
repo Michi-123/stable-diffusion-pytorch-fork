@@ -11,7 +11,7 @@ from . import model_loader
 class Pipeline:
 
     def __init__(self):
-        self.latents = None
+        pass
 
     def generate(self,
                 prompts,
@@ -208,7 +208,5 @@ class Pipeline:
             images = util.rescale(images, (-1, 1), (0, 255), clamp=True)
             images = util.move_channel(images, to="last")
             images = images.to('cpu', torch.uint8).numpy()
-
-            self.latents = latents
 
             return [Image.fromarray(image) for image in images]
